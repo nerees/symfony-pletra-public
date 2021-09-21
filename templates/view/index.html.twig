@@ -1,0 +1,197 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Anketos {{ a.id }} peržiūra{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 1100px; width: 95%; font-size: 16px; background: #FFF; padding: 20px 20px; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .trborder {border: 1px solid #9F9F9F;}
+    .tdborder {border-left: 1px solid #9F9F9F;}
+</style>
+
+<div class="example-wrapper z-depth-2">
+
+    <strong>Pirkimui siūlomo objekto/vietovės anketa:</strong><br>
+    <br><br>
+    <strong>1. Objekto/vietovės lokacijos duomenys</strong><br>
+    <table class="responsive-table">
+        <tr class="trborder">
+            <td style="white-space: nowrap;"><strong>1.1. Koordinatės</strong></td>
+            <td class="tdborder">{{ a.lat }};{{ a.lng }}</td>
+        </tr>
+        <tr class="trborder">
+            <td style="white-space: nowrap;"><strong>1.2. Savivaldybė</strong></td>
+            <td class="tdborder">{{ a.viensDu }}</td>
+        </tr>
+        <tr class="trborder">
+            <td style="white-space: nowrap;"><strong>1.3. Rajono pavadinimas</strong></td>
+            <td class="tdborder">{{ a.viensTrys }}</td>
+        </tr>
+        <tr class="trborder">
+            <td style="white-space: nowrap;"><strong>1.4. Gyventojų skaičius rajone</strong></td>
+            <td class="tdborder">{{ a.viensKeturi }}</td>
+        </tr>
+        <tr class="trborder">
+            <td style="white-space: nowrap;"><strong>1.5. Adresas</strong></td>
+            <td class="tdborder">{{ a.viensPenki }}</td>
+        </tr>
+    </table>
+    <br>
+    <strong>2. Objekto/vietovės savininko duomenys</strong><br>
+    <table class="responsive-table">
+        <tr class="trborder">
+            <td style="white-space: nowrap;"><strong>2.1. Vardas Pavardė/Įm. pavadinimas</strong></td>
+            <td class="tdborder">{{ a.duViens }}</td>
+        </tr>
+        <tr class="trborder">
+            <td style="white-space: nowrap;"><strong>2.2. Tel. Nr.</strong></td>
+            <td class="tdborder">{{ a.duDu }}</td>
+        </tr>
+        <tr class="trborder">
+            <td style="white-space: nowrap;"><strong>2.3. Informacija apie sąvininką</strong></td>
+            <td class="tdborder">{{ a.duTrys }}</td>
+        </tr>
+        <tr class="trborder">
+            <td style="white-space: nowrap;"><strong>2.4. Pardavimo priežąstis</strong></td>
+            <td class="tdborder">{{ a.duKeturi }}</td>
+        </tr>
+    </table>
+    <br>
+    <strong>3. Objekto/vietovės kriterijų duomenys</strong><br>
+    <table class="responsive-table">
+        <tr class="trborder">
+            <td class="tdborder" style="white-space: nowrap;"><strong>3.1. </strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Objektas</strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Objekto dydis m2</strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Pastabos</strong></td>
+        </tr>
+        <tr class="trborder">
+            <td class="tdborder"> </td>
+            <td class="tdborder">{{ a.trysViens }}</td>
+            <td class="tdborder">{{ a.trysViensSize }}</td>
+            <td class="tdborder">{{ a.trysViensPastabos }}</td>
+        </tr>
+    </table>
+    <br>
+    <table class="responsive-table">
+        <tr class="trborder">
+            <td class="tdborder" style="white-space: nowrap;"><strong>3.2. </strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Sklypo/pastato matomumas</strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Pastabos</strong></td>
+        </tr>
+        <tr class="trborder">
+            <td class="tdborder"> </td>
+            <td class="tdborder">{{ a.trysDu }}</td>
+            <td class="tdborder">{{ a.trysDuPastabos }}</td>
+        </tr>
+    </table>
+    <br>
+    <table class="responsive-table">
+        <tr class="trborder">
+            <td class="tdborder" style="white-space: nowrap;"><strong>3.3. </strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Objekto/vietovės dislokacija</strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Pastabos</strong></td>
+        </tr>
+        <tr class="trborder">
+            <td class="tdborder"> </td>
+            <td class="tdborder">{{ a.trysTrys }}</td>
+            <td class="tdborder">{{ a.trysTrysPastabos }}</td>
+        </tr>
+    </table>
+    <br>
+    <table class="responsive-table">
+        <tr class="trborder">
+            <td class="tdborder" style="white-space: nowrap;"><strong>3.4. </strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Gatvės kriterijai</strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Pastabos</strong></td>
+        </tr>
+        <tr class="trborder">
+            <td class="tdborder"> </td>
+            <td class="tdborder">{{ a.trysKeturi }}</td>
+            <td class="tdborder">{{ a.trysKeturiPastabos }}</td>
+        </tr>
+    </table>
+    <br>
+    <table class="responsive-table">
+        <tr class="trborder">
+            <td class="tdborder" style="white-space: nowrap;"><strong>3.5. </strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Esantys infrastruktūros objektai</strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Pastabos</strong></td>
+        </tr>
+        <tr class="trborder">
+            <td class="tdborder"> </td>
+            <td class="tdborder">{{ a.trysPenki }}</td>
+            <td class="tdborder">{{ a.trysPenkiPastabos }}</td>
+        </tr>
+    </table>
+    <br>
+    <table class="responsive-table">
+        <tr class="trborder">
+            <td class="tdborder" style="white-space: nowrap;"><strong>3.6. </strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Srautinės/visuomeninės įstaigos</strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Pastabos</strong></td>
+        </tr>
+        <tr class="trborder">
+            <td class="tdborder"> </td>
+            <td class="tdborder">{{ a.trysSesi }}</td>
+            <td class="tdborder">{{ a.trysSesiPastabos }}</td>
+        </tr>
+    </table>
+    <br>
+    <table class="responsive-table">
+        <tr class="trborder">
+            <td class="tdborder" style="white-space: nowrap;"><strong>3.7. </strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Konkurento pavadinimas</strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Atstumas nuo objekto km</strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Pastabos</strong></td>
+        </tr>
+        <tr class="trborder">
+            <td class="tdborder">Konkurencinė aplinka</td>
+            <td class="tdborder">{{ a.trysSeptyniViens }}</td>
+            <td class="tdborder">{{ a.trysSeptyniViensKm }}</td>
+            <td class="tdborder">{{ a.trysSeptyniPastabos }}</td>
+        </tr>
+        {% if a.trysSeptyniDu %}
+        <tr class="trborder">
+            <td class="tdborder"> </td>
+            <td class="tdborder">{{ a.trysSeptyniDu }}</td>
+            <td class="tdborder">{{ a.trysSeptyniDuKm }}</td>
+            <td class="tdborder"> </td>
+        </tr>
+        {% endif %}
+        {% if a.trysSeptyniTrys %}
+        <tr class="trborder">
+            <td class="tdborder"> </td>
+            <td class="tdborder">{{ a.trysSeptyniTrys }}</td>
+            <td class="tdborder">{{ a.trysSeptyniTrysKm }}</td>
+            <td class="tdborder"> </td>
+        </tr>
+        {% endif %}
+        {% if a.trysSeptyniKeturi %}
+        <tr class="trborder">
+            <td class="tdborder"> </td>
+            <td class="tdborder">{{ a.trysSeptyniKeturi }}</td>
+            <td class="tdborder">{{ a.trysSeptyniKeturiKm }}</td>
+            <td class="tdborder"> </td>
+        </tr>
+        {% endif %}
+    </table>
+    <br>
+    <strong>4. Anketą užpildė:</strong><br>
+    <table class="responsive-table">
+        <tr class="trborder">
+            <td class="tdborder" style="white-space: nowrap;"><strong>Įmonės pavadinimas </strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Pareigos</strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Vardas Pavardė</strong></td>
+            <td class="tdborder" style="white-space: nowrap;"><strong>Užpildymo data</strong></td>
+        </tr>
+        <tr class="trborder">
+            <td class="tdborder"> {{ user.company }} </td>
+            <td class="tdborder">{{ user.ocupation }}</td>
+            <td class="tdborder">{{ user.name }}</td>
+            <td class="tdborder">{{ a.createdAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

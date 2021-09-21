@@ -1,0 +1,138 @@
+.example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif;}
+.example-wrapper .code { background: #ffffff; padding: 10px 5%; }
+.btn {margin: 20px 0;}
+/* Style the form */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+}
+
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  /*font-family: Raleway;*/
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+h1 {
+  text-align: center; 
+  font-size: 4.2rem;
+  line-height: 1em;
+  margin: 0 0 0 0;
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  /*font-family: Raleway;*/
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #04AA6D;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  /*font-family: Raleway;*/
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #04AA6D;
+}
+
+label {
+  font-size: 1rem;
+  color: #8d2005;
+  font-weight: bold;
+}
+label span{
+  font-size: 1rem;
+  color: #1b1b1b;
+  font-weight: normal;
+}
+.prisijungti{
+  text-align:center;
+  float:left;
+  max-width:50%;
+}
+.registruotis{
+  text-align:center;
+  float:right;
+  max-width:50%;
+}
+@media only screen and (max-width: 600px) {
+  .prisijungti{
+    float:none;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .prisijungti img{
+    max-width: 90%;
+    margin: 5% auto;
+  }
+
+  .registruotis{
+    float:none;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+  } 
+  .registruotis img{
+    max-width: 90%;
+    margin: 5% auto;
+  } 
+
+  #regForm {
+    margin: 100px auto;
+    /* font-family: Raleway; */
+    padding: 20px;
+    width: 98%;
+    min-width: auto;
+}
+
+}

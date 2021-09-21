@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registracija{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+<div class="example-wrapper">
+    <div class="code z-depth-5">
+        
+        <h2>Registracija</h2>
+        <p><small class="teal-text text-darken-3"> *Registracijai naudokite darbovietės suteiktą el. pašto dėžutę. </small></p>
+
+        {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.name) }}
+            {{ form_row(registrationForm.company) }}
+            {{ form_row(registrationForm.ocupation) }}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Slaptažodis'
+            }) }}
+            {#{{ form_row(registrationForm.agreeTerms) }}#}
+
+            <button type="submit" class="btn">Registruotis</button>
+        {{ form_end(registrationForm) }}
+    </div>
+</div>
+{% endblock %}

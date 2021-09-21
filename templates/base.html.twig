@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="lt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Sveiki!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+            <link href="{{ asset('css/materialize.css') }}" rel="stylesheet"/>
+            <link href="{{ asset('css/main.css') }}" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        {% endblock %}
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ asset('site.webmanifest') }}">
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+           {# <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>#}
+            <script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
+            {#<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>#}
+        {% endblock %}
+    </head>
+    <body>
+        <nav style="background: #04AA6D;">
+            <div class="nav-wrapper">
+            <a href="/" class="brand-logo center"><img src="{{ asset('logo.png') }}" style="padding-top:8px;"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="/">Pradžia</a></li>
+                {% if app.user %}
+                <li><a href="/profile">Mano anketos</a></li>
+                {% if app.user.admin == 1 %}
+                    <li> <a href="/admin">Visos anketos</a></li>
+                {% endif %}
+                <li><a href="/logout">Atsijungti</a></li>
+                {% else %}
+                <li><a href="/login">Prisijungti</a></li>
+                <li><a href="/register">Registruotis</a></li>
+                {% endif %}
+            </ul>
+            {% if app.user %}
+                <a href="/logout" class="brand-logo right hide-on-med-and-down"><span style="font-size:12px; padding-right:10px;">{{ app.user.username }}</span> &nbsp;<button class="blue-grey lighten-5 teal-text text-darken-2">Atsijungti</button></a>
+            {% else %}
+                            <a href="/login" class="brand-logo right hide-on-med-and-down"><span style="font-size:12px; padding-right:10px;">Svečias</span> &nbsp;<button class="blue-grey lighten-5 teal-text text-darken-2">Prisijungti</button>
+            {% endif %}
+            </a>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-demo">
+            <li><a class="sidenav-close right" href="#!"><i class="material-icons">close</i></a></li>
+            <li><a href="/">Pradžia</a></li>
+            {% if app.user %}
+            <li><a href="#">Mano anketos</a></li>
+            <li><a href="/logout">Atsijungti</a></li>
+            {% else %}
+            <li><a href="/login">Prisijungti</a></li>
+            <li><a href="/register">Registruotis</a></li>
+            {% endif %}
+        </ul>
+
+        {% block body %}{% endblock %}
+        <script>
+	    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems,
+            {
+                edge: 'right',
+                draggable: true,
+                inDuration: 250,
+                outDuration: 200,
+                onOpenStart: null,
+                onOpenEnd: null,
+                onCloseStart: null,
+                onCloseEnd: null,
+                preventScrolling: true
+            }
+            );
+        });
+	</script>
+    </body>
+</html>
