@@ -57,7 +57,7 @@ class User implements UserInterface
     private $ocupation;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $admin;
 
