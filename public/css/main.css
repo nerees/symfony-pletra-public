@@ -135,4 +135,8 @@ label span{
     min-width: auto;
 }
 
+  .smaller-mobile {
+    font-size: 12px;
+  }
+
 }

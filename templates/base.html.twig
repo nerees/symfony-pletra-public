@@ -55,6 +55,9 @@
             <li><a href="/">Pradžia</a></li>
             {% if app.user %}
             <li><a href="#">Mano anketos</a></li>
+                {% if app.user.admin == 1 %}
+                    <li> <a href="/admin">Visos anketos</a></li>
+                {% endif %}
             <li><a href="/logout">Atsijungti</a></li>
             {% else %}
             <li><a href="/login">Prisijungti</a></li>
