@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Išsiųstas slaptažodžio atstatymo laiškas{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <div class="code z-depth-5">
+        <p>
+            Jums buvo išsiųstas laiškas su slaptažodžio atstatymo nuoroda.<br>
+            <strong>Nuoroda galioja 1 valandą.</strong>
+        </p>
+        <p>Jei negavote elektroninio laiško ir jo nėra "spam" kataloguose spauskite: <a href="{{ path('app_forgot_password_request') }}">pakartoti laišką</a>.</p>
+    </div>
+</div>
+{% endblock %}

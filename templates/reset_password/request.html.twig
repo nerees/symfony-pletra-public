@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Atkurkite savo slaptažodį{% endblock %}
+
+{% block body %}
+
+    <style>
+        #reset_password_request_form_email {
+            background-color: #d7ded7;
+            max-width: 300px;
+            margin-left: 10px;
+        }
+    </style>
+
+    {% for flashError in app.flashes('reset_password_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <h1 style="font-size: 24px; margin: 30px auto;">Atkurti pamirštą slaptažodį</h1>
+    <div class="example-wrapper">
+        <div class="code z-depth-5">
+            {{ form_start(requestForm) }}
+                {{ form_row(requestForm.email) }}
+                <div>
+                    <small>
+                        Nurodykite elektroninio pašto adresą, kuris buvo naudojamas registracijos metu.
+                        Jums bus atsiųsta speciali nuoroda, kurios pagalba galėsite nustatyti naują slaptažodį.
+                    </small>
+                </div>
+            <button class="btn btn-primary">Siųsti atstatymo nuorodą</button>
+            {{ form_end(requestForm) }}
+        </div>
+    </div>
+    {#<script>
+        document.getElementById('reset_password_request_form_email').style.backgroundColor = 'silver';
+    </script>#}
+
+
+{% endblock %}
